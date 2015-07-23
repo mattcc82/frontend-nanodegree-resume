@@ -114,7 +114,7 @@ a {
   background-color: #4A4A4A;
 }
 
-/* TODO: Replace with image later */
+
 #header {
   background-color: #484848;
 }
@@ -142,7 +142,7 @@ ul {
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
+  width: auto;
   display: none;
 }
 
@@ -213,3 +213,12 @@ span {
     display: block;
   }
 }
+
+
+/*Custom Added css */
+/*region start*/
+.white-text a {
+  display: inline;
+  color: white;
+}
+/*region end */
