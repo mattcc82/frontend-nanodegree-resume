@@ -1,76 +1,64 @@
-//creating piped in variables 
-//header
-var name = 'matt castle';
-var role = 'web developer';
-
-//skills
-var skills = [
-    'Javascript',
-    'CSS3',
-    'Bootstrap',
-    'HTML5',
-    'Responsive Web Design',
-    'Web Programming Management',
-    'C#',
-    'ASP.Net',
-    'Market Research / Quantitative Research',
-    'Data Collection',
-    'SQL'
-];
-
-//contact info
-var contact = {
-    "email": 'mattcc82@gmail.com',
-    "phone": '248.330.2796',
-    "linkedIn": '<a href="https://www.linkedin.com/pub/matthew-castle/7/228/668" target="_blank">Matt Castle</a>',
-    "gitHub": '<a href="https://github.com/mattcc82" target="_blank">mattcc82</a>',
-    "location": "metro Detroit"
-}
-
-//pic url
-var pic = 'images/267fd64.jpg';
-
-//welcome message
-var welcome = 'Web programming manager who\'s looking to sharpen basic skills and explore modern web development';
-
-//bio object
+//Time to create the json objects to populate the html
+//bio 
 var bio = {
-    "name": name,
-    "role": role,
-    "skills": skills,
-    "contactInfo": contact,
-    "pic": pic,
-    "welcome": welcome
-};
-
-//work 
-var work = {
-    "positions": [
+    "bio": [
         {
-            "firm": "Gongos",
-            "title": "Director, Information Systems",
-            "start": "December 2013",
-            "end": "Present",
-            "summary": "Direct, manage, and lead an Information Systems department of programmers responsible for all primary research data collection and processing"
-        },
-        {
-            "firm": "Gongos",
-            "title": "Senior Programmer, Team Lead, Information Systems",
-            "start": "August 2008",
-            "end": "December 2013",
-            "summary": "Manage and coordinate a team of programmers responsible for front end data collection and back end data processing"
-        },
-        {
-            "firm": "Gongos",
-            "title": "Programmer/Analyst",
-            "start": "March 2007",
-            "end": "August 2008",
-            "summary": "Program and execute data collection and data processing using tools/languages like: C#, ASP.NET, VBScript, SQL Server, Javascript/jQuery, SPSS, Quantum"
+            "name": "Matt Castle",
+            "role": "Web Developer",
+            "pic": "images/267fd64.jpg",
+            "welcomeMessage": "Web programming manager who is looking to sharpen basic skills and explore modern web development",
+            "contacts": [
+                {
+                    "email": "mattcc82@gmail.com",
+                    "mobile": "248.330.2796",
+                    "linkedIn": "<a href='https://www.linkedin.com/pub/matthew-castle/7/228/668' target='_blank'>Matt Castle</a>",
+                    "gitHub": "<a href='https://github.com/mattcc82' target='_blank'>mattcc82</a>",
+                    "location": "Metro Detroit"
+                }
+            ],
+            "skills": [
+                "Javascript",
+                "CSS3",
+                "Bootstrap",
+                "HTML5",
+                "Responsive Web Design",
+                "Web Programming Management",
+                "C#",
+                "ASP.Net",
+                "Market Research / Quantitative Research",
+                "Data Collection",
+                "SQL"
+            ]
         }
     ]
 };
 
-
+//work 
+var work = {
+    "jobs": [
+        {
+            "employer": "Gongos",
+            "title": "Director, Information Systems",
+            "location": "Metro Detroit",
+            "dates": [2013, 2015],
+            "description": "Direct, manage, and lead an Information Systems department of programmers responsible for all primary research data collection and processing"
+        },
+        {
+            "employer": "Gongos",
+            "title": "Senior Programmer, Team Lead, Information Systems",
+            "location": "Metro Detroit",
+            "dates": [2008, 2013],
+            "description": "Manage and coordinate a team of programmers responsible for front end data collection and back end data processing"
+        },
+        {
+            "employer": "Gongos",
+            "title": "Programmer/Analyst",
+            "location": "Metro Detroit",
+            "dates": [2007, 2008],
+            "description": "Program and execute data collection and data processing using tools/languages like: C#, ASP.NET, VBScript, SQL Server, Javascript/jQuery, SPSS, Quantum"
+        }
+    ]
+};
 
 //education
 var education = {
@@ -93,16 +81,33 @@ var education = {
     ]
 };
 
-var formattedName = HTMLheaderName.replace('%data%', bio.name);
-var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-var formattedSkills = HTMLskills.replace('%data%', bio.skills);
-var formattedMobile = HTMLmobile.replace('%data%', bio.contactInfo['phone']);
-var formattedEmail = HTMLemail.replace('%data%', bio.contactInfo['email']);
-var formattedLinkedIn = HTMLLinkedIn.replace('%data%', bio.contactInfo['linkedIn']);
-var formattedGitHub = HTMLgithub.replace('%data%', bio.contactInfo['gitHub']);
-var formattedLocation = HTMLlocation.replace('%data%', bio.contactInfo['location']);
-var formattedPic = HTMLbioPic.replace('%data%', bio.pic);
-var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);
+//projects
+var projects = {
+    "project": [
+        {
+            "title": "Portfolio",
+            "dates": [
+                2015
+            ],
+            "description": "An exploration into modern web technologies used to house my personal projects and learning",
+            "images": [
+                "images/project_1_1.jpg"
+            ]
+        }
+    ]
+};
+
+
+var formattedName = HTMLheaderName.replace('%data%', bio.bio[0].name);
+var formattedRole = HTMLheaderRole.replace('%data%', bio.bio[0].role);
+var formattedSkills = HTMLskills.replace('%data%', bio.bio[0].skills);
+var formattedMobile = HTMLmobile.replace('%data%', bio.bio[0].contacts['mobile']);
+var formattedEmail = HTMLemail.replace('%data%', bio.bio[0].contacts['email']);
+var formattedLinkedIn = HTMLLinkedIn.replace('%data%', bio.bio[0].contacts['linkedIn']);
+var formattedGitHub = HTMLgithub.replace('%data%', bio.bio[0].contacts['gitHub']);
+var formattedLocation = HTMLlocation.replace('%data%', bio.bio[0].contacts['location']);
+var formattedPic = HTMLbioPic.replace('%data%', bio.bio[0].pic);
+var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.bio[0].welcomeMessage);
 
 //push to html
 //header
@@ -119,5 +124,3 @@ $('#topContacts').append(formattedEmail);
 $('#topContacts').append(formattedLinkedIn);
 $('#topContacts').append(formattedGitHub);
 $('#topContacts').append(formattedLocation);
-
-//
